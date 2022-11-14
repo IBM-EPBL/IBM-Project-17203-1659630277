@@ -8,7 +8,7 @@ load_dotenv()
 app = Flask(__name__)
 app.secret_key= os.getenv("SECRET_KEY")
 
-#Cloud COnnection values
+#Cloud Connection values
 database_name = os.getenv("DATABASE")
 host_name = os.getenv("HOSTNAME")
 port = os.getenv("PORT")
