@@ -1,5 +1,5 @@
 {% extends 'base.html' %} {% block head %}
-<title>Forgot - Job Hunter</title>
+<title>sign up - Job Hunter</title>
 <link rel="stylesheet" href="static/css/bootstrap.min.css" />
 <link
   rel="stylesheet"
@@ -37,21 +37,28 @@
     </div>
   </div>
 </nav>
-<section class="py-4 py-md-5 mt-5">
+<section class="py-4 py-md-5 my-5">
   <div class="container py-md-5">
-    <div class="row d-flex align-items-center">
+    <div class="row">
       <div class="col-md-6 text-center">
-        <img class="img-fluid w-100" src="static/img/illustrations/login.svg" />
+        <img
+          class="img-fluid w-100"
+          src="static/img/illustrations/register.svg"
+        />
       </div>
       <div class="col-md-5 col-xl-4 text-center text-md-start">
-        <h2 class="display-6 fw-bold mb-4">
-          Forgot your <span class="underline">password</span>?
+        <h2 class="display-6 fw-bold mb-5">
+          <span class="underline pb-1"><strong>Sign up</strong></span>
         </h2>
-        <p class="text-muted">
-          Enter the email associated with your account and we'll send you a
-          reset link.
-        </p>
         <form method="post">
+          <div class="mb-3">
+            <input
+              class="shadow form-control"
+              type="text"
+              name="name"
+              placeholder="Name"
+            />
+          </div>
           <div class="mb-3">
             <input
               class="shadow form-control"
@@ -60,11 +67,51 @@
               placeholder="Email"
             />
           </div>
+          <div class="mb-3">
+            <input
+              class="shadow form-control"
+              type="number"
+              name="phone"
+              placeholder="Phone number"
+            />
+          </div>
+          <div class="mb-3">
+            <input
+              class="shadow form-control"
+              type="password"
+              name="password"
+              placeholder="Password"
+            />
+          </div>
           <div class="mb-5">
             <button class="btn btn-primary shadow" type="submit">
-              Reset password
+              Create account
             </button>
           </div>
+          <p class="text-muted">
+            Already have an account?
+            <a href="login"
+              >Log in&nbsp;<svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="1em"
+                height="1em"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="icon icon-tabler icon-tabler-arrow-narrow-right"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <line x1="15" y1="16" x2="19" y2="12"></line>
+                <line x1="15" y1="8" x2="19" y2="12"></line></svg></a
+            >&nbsp;
+          </p>
+          <div class="mb-3"></div>
+          <div class="mb-3"></div>
+          <div></div>
         </form>
       </div>
     </div>

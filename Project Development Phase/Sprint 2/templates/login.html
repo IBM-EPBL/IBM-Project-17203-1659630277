@@ -1,5 +1,5 @@
 {% extends 'base.html' %} {% block head %}
-<title>Forgot - Job Hunter</title>
+<title>Log in - Job Hunter</title>
 <link rel="stylesheet" href="static/css/bootstrap.min.css" />
 <link
   rel="stylesheet"
@@ -31,26 +31,27 @@
         <li class="nav-item">
           <a class="nav-link" href="contacts">Contacts</a>
         </li>
-        <li class="nav-item"><a class="nav-link" href="login">Log in</a></li>
+        <li class="nav-item">
+          <a class="nav-link active" href="login">Log in</a>
+        </li>
       </ul>
       <a class="btn btn-primary shadow" role="button" href="signup">Sign up</a>
     </div>
   </div>
 </nav>
-<section class="py-4 py-md-5 mt-5">
+<section class="py-4 py-md-5 my-5">
   <div class="container py-md-5">
-    <div class="row d-flex align-items-center">
+    <div class="row">
       <div class="col-md-6 text-center">
-        <img class="img-fluid w-100" src="static/img/illustrations/login.svg" />
+        <img
+          class="img-fluid w-100"
+          src="static/img/illustrations/startup.svg"
+        />
       </div>
       <div class="col-md-5 col-xl-4 text-center text-md-start">
-        <h2 class="display-6 fw-bold mb-4">
-          Forgot your <span class="underline">password</span>?
+        <h2 class="display-6 fw-bold mb-5">
+          <span class="underline pb-1"><strong>Login</strong><br /></span>
         </h2>
-        <p class="text-muted">
-          Enter the email associated with your account and we'll send you a
-          reset link.
-        </p>
         <form method="post">
           <div class="mb-3">
             <input
@@ -60,11 +61,18 @@
               placeholder="Email"
             />
           </div>
-          <div class="mb-5">
-            <button class="btn btn-primary shadow" type="submit">
-              Reset password
-            </button>
+          <div class="mb-3">
+            <input
+              class="shadow form-control"
+              type="password"
+              name="password"
+              placeholder="Password"
+            />
           </div>
+          <div class="mb-5">
+            <button class="btn btn-primary shadow" type="submit">Log in</button>
+          </div>
+          <p class="text-muted"><a href="forgot">Forgot your password?</a></p>
         </form>
       </div>
     </div>
