@@ -1,11 +1,14 @@
 from dotenv import load_dotenv
-from flask import Flask,render_template,request, redirect,url_for
+from flask import Flask,render_template,request,session, redirect,url_for
+from flask_session import Session
 import ibm_db
 import os
 
 load_dotenv()
 
 app = Flask(__name__)
+app.config['SESSION_TYPE']= 'filesystem'
+Session(app)
 app.secret_key= os.getenv("SECRET_KEY")
 
 #Cloud COnnection values
@@ -23,7 +26,7 @@ try:
     print("connection successful...")
 except:
     print("Connection Failed")
-    print(ibm.conn_error())
+    print(ibm_db.conn_error())
     
 
  
@@ -44,12 +47,14 @@ def signup():
     if request.method == 'POST':
         # conn = connection()
          try:
-            sql = "INSERT INTO users VALUES('{}','{}','{}','{}')".format(request.form["name"],request.form["email"],request.form["phone"],request.form["password"])
+            sql = "INSERT INTO user_data VALUES('{}','{}','{}','{}')".format(request.form["name"],request.form["email"],request.form["phone"],request.form["password"])
             ibm_db.exec_immediate(conn,sql)
+            print('success')
             #flash("successfully Registered !")
             return render_template('login.html')
          except:
             #flash("Account already exists! ")
+            print("fail")
             return render_template('signup.html')
     else:
             return render_template('signup.html')
@@ -73,7 +78,7 @@ def login():
        # conn =connection()
         email = request.form["email"]
         password = request.form["password"]
-        sql = "SELECT COUNT(*) FROM users WHERE EMAIL=? AND PASSWORD=?"
+        sql = "SELECT COUNT(*) FROM user_data WHERE EMAIL=? AND PASSWORD=?"
         stmt = ibm_db.prepare(conn,sql)
         ibm_db.bind_param(stmt, 1, email)
         ibm_db.bind_param(stmt, 2, password)
@@ -108,5 +113,4 @@ def logout():
   #    return render_template('login.html' ,msg="success")
 
 if __name__=='__main__':
-    app.config['SESSION_TYPE']= 'filesystem'
     app.run(debug=True)
