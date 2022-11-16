@@ -24,7 +24,7 @@ try:
     print("connection successful...")
 except:
     print("Connection Failed")
-    print(ibm.conn_error())
+    print(ibm_db.conn_error())
 
 
 
